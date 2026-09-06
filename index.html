@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onyxx — Manufacturing &amp; Distribution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --onyx: #121110;
+    --onyx-2: #1B1916;
+    --parchment: #EDE7DA;
+    --copper: #B9793D;
+    --sage: #8A9670;
+    --teal: #5C8A81;
+    --line: rgba(237,231,218,0.14);
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    background: var(--onyx);
+    color: var(--parchment);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .hero-art{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.85;
+  }
+  .hero-art svg{ width: 100%; height: 100%; }
+
+  .hero-scrim{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(18,17,16,0.55) 0%, rgba(18,17,16,0.72) 55%, var(--onyx) 100%);
+  }
+
+  header{
+    position: relative;
+    z-index: 2;
+    padding: 36px 0 0;
+  }
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-family:'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+  }
+  .brand span{ color: var(--copper); }
+  header nav a{
+    text-decoration:none;
+    font-size: 0.9rem;
+    color: var(--parchment);
+    opacity: 0.7;
+    margin-left: 28px;
+  }
+  header nav a:hover{ opacity: 1; }
+
+  .hero-main{
+    position: relative;
+    z-index: 2;
+    padding: 40px 0 90px;
+  }
+  .hero-main h1{
+    font-family:'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    line-height: 1.03;
+    letter-spacing: -0.01em;
+    max-width: 14ch;
+  }
+  .hero-main h1 em{
+    font-style: normal;
+    color: var(--copper);
+  }
+  .hero-main .tagline{
+    margin-top: 22px;
+    font-size: 1.08rem;
+    max-width: 46ch;
+    opacity: 0.82;
+  }
+  .hero-tags{
+    display:flex;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .hero-tags span{
+    font-size: 0.78rem;
+    padding: 7px 14px;
+    border: 1px solid rgba(237,231,218,0.3);
+    border-radius: 100px;
+    opacity: 0.85;
+  }
+
+  /* ---------- Intro ---------- */
+  .intro{
+    padding: 90px 0 40px;
+  }
+  .intro .wrap{
+    display:grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 56px;
+  }
+  .intro-label{
+    font-size: 0.85rem;
+    opacity: 0.55;
+    padding-top: 4px;
+  }
+  .intro p{
+    font-size: 1.28rem;
+    line-height: 1.55;
+    max-width: 62ch;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+  }
+  .intro p strong{
+    color: var(--copper);
+    font-weight: 600;
+  }
+
+  /* ---------- Sectors ---------- */
+  .sectors{
+    padding: 80px 0 100px;
+  }
+  .sector-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .sector{
+    padding: 36px 28px 36px 0;
+    border-right: 1px solid var(--line);
+  }
+  .sector:last-child{ border-right: none; padding-right: 0; }
+  .sector:not(:first-child){ padding-left: 28px; }
+  .sector-icon{ width: 40px; height: 40px; margin-bottom: 22px; }
+  .sector h3{
+    font-family:'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+  .sector.mining h3{ color: var(--copper); }
+  .sector.agri h3{ color: var(--sage); }
+  .sector.medical h3{ color: var(--teal); }
+  .sector p{
+    font-size: 0.95rem;
+    opacity: 0.78;
+    max-width: 32ch;
+  }
+
+  /* ---------- Contact strip ---------- */
+  .contact{
+    border-top: 1px solid var(--line);
+    padding: 48px 0;
+  }
+  .contact .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .contact-email{
+    font-family:'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .contact-email:hover{ border-color: var(--copper); }
+  .contact-meta{
+    font-size: 0.85rem;
+    opacity: 0.55;
+    text-align: right;
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--copper);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 780px){
+    .intro .wrap{ grid-template-columns: 1fr; gap: 20px; }
+    .intro p{ font-size: 1.1rem; }
+    .sector-grid{ grid-template-columns: 1fr; }
+    .sector{ border-right: none; padding-left: 0 !important; border-bottom: 1px solid var(--line); }
+    .sector:last-child{ border-bottom: none; }
+    header nav{ display:none; }
+    .contact .wrap{ flex-direction: column; align-items: flex-start; }
+    .contact-meta{ text-align: left; }
+  }
+  @media (max-width: 480px){
+    .wrap{ padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- strata / mining lines, left third -->
+      <g stroke="#B9793D" stroke-width="1.2" fill="none" opacity="0.55">
+        <path d="M-20 120 L260 90 L520 140" />
+        <path d="M-20 200 L280 170 L540 220" />
+        <path d="M-20 280 L240 260 L520 300" />
+        <path d="M60 40 L60 760" stroke-dasharray="2 8" />
+        <path d="M130 20 L90 760" />
+        <path d="M180 20 L220 760" />
+      </g>
+      <!-- pickaxe form -->
+      <g stroke="#B9793D" stroke-width="2" fill="none" opacity="0.75">
+        <path d="M120 340 L340 220" />
+        <path d="M330 205 Q360 200 375 225 Q385 245 365 255 L340 235" />
+        <path d="M120 340 L60 400" />
+      </g>
+
+      <!-- wheat / agriculture, middle third -->
+      <g stroke="#8A9670" stroke-width="1.3" fill="none" opacity="0.6">
+        <path d="M600 760 L600 380" />
+        <path d="M600 420 L560 380 M600 420 L640 380" />
+        <path d="M600 460 L560 420 M600 460 L640 420" />
+        <path d="M600 500 L560 460 M600 500 L640 460" />
+        <path d="M600 540 L560 500 M600 540 L640 500" />
+        <path d="M600 380 Q600 350 585 335 M600 380 Q600 350 615 335" />
+      </g>
+      <g stroke="#8A9670" stroke-width="1.3" fill="none" opacity="0.6">
+        <path d="M700 760 L700 440" />
+        <path d="M700 480 L660 440 M700 480 L740 440" />
+        <path d="M700 520 L660 480 M700 520 L740 480" />
+        <path d="M700 560 L660 520 M700 560 L740 520" />
+        <path d="M700 440 Q700 410 685 395 M700 440 Q700 410 715 395" />
+      </g>
+      <g stroke="#8A9670" stroke-width="1.3" fill="none" opacity="0.6">
+        <path d="M520 760 L520 500" />
+        <path d="M520 540 L480 500 M520 540 L560 500" />
+        <path d="M520 580 L480 540 M520 580 L560 540" />
+        <path d="M520 500 Q520 470 505 455 M520 500 Q520 470 535 455" />
+      </g>
+
+      <!-- medical cross / vial, right third -->
+      <g stroke="#5C8A81" stroke-width="1.4" fill="none" opacity="0.65">
+        <rect x="900" y="120" width="16" height="80" rx="3" transform="rotate(0 908 160)"/>
+        <path d="M900 200 L916 200 L920 260 Q908 268 896 260 Z" />
+        <path d="M960 340 L960 420 M920 380 L1000 380" stroke-width="3"/>
+        <circle cx="1040" cy="480" r="46" />
+        <circle cx="1040" cy="480" r="4" fill="#5C8A81" stroke="none"/>
+        <path d="M1005 445 L1075 515 M1075 445 L1005 515" opacity="0.35"/>
+      </g>
+
+      <!-- fine connecting lines across sections -->
+      <g stroke="#EDE7DA" stroke-width="0.6" opacity="0.12">
+        <path d="M0 650 L1200 610" />
+        <path d="M0 700 L1200 730" />
+      </g>
+    </svg>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <header>
+    <div class="wrap">
+      <div class="brand">ONY<span>XX</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero-main">
+    <div class="wrap">
+      <h1>Niche products, <em>engineered</em> for three industries that can't afford to compromise.</h1>
+      <p class="tagline">Onyxx manufactures and distributes specialized equipment and materials across mining, agriculture, and medical sectors — built to spec, delivered where it's needed.</p>
+      <div class="hero-tags">
+        <span>Mining</span>
+        <span>Agriculture</span>
+        <span>Medical</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro" id="about">
+  <div class="wrap">
+    <div class="intro-label">What we do</div>
+    <p>Most suppliers pick one industry and stay there. Onyxx was built differently — we manufacture and distribute <strong>niche, hard-to-source products</strong> across mining, agriculture, and medical operations, applying the same standards of precision and reliability to a drill component, a field sensor, and a surgical instrument alike. Our customers don't have time for generalist suppliers; we exist for the parts and materials that actually keep specialized operations running.</p>
+  </div>
+</section>
+
+<section class="sectors" id="sectors">
+  <div class="wrap">
+    <div class="sector-grid">
+      <div class="sector mining">
+        <svg class="sector-icon" viewBox="0 0 40 40" fill="none" stroke="#B9793D" stroke-width="1.6">
+          <path d="M6 30 L20 10 L34 30" stroke-linejoin="round"/>
+          <path d="M12 30 L20 18 L28 30" stroke-linejoin="round"/>
+        </svg>
+        <h3>Mining</h3>
+        <p>Durable components and consumables for extraction and processing operations, sourced and manufactured to withstand demanding conditions.</p>
+      </div>
+      <div class="sector agri">
+        <svg class="sector-icon" viewBox="0 0 40 40" fill="none" stroke="#8A9670" stroke-width="1.6">
+          <path d="M20 34 L20 12"/>
+          <path d="M20 16 L14 10 M20 16 L26 10"/>
+          <path d="M20 22 L14 16 M20 22 L26 16"/>
+          <path d="M20 28 L14 22 M20 28 L26 22"/>
+        </svg>
+        <h3>Agriculture</h3>
+        <p>Equipment, inputs, and specialty materials for modern farming operations — reliable supply for the products generalist distributors overlook.</p>
+      </div>
+      <div class="sector medical">
+        <svg class="sector-icon" viewBox="0 0 40 40" fill="none" stroke="#5C8A81" stroke-width="1.6">
+          <rect x="17" y="6" width="6" height="28" rx="2"/>
+          <path d="M12 15 L28 15" stroke-width="2.4"/>
+        </svg>
+        <h3>Medical</h3>
+        <p>Precision instruments and consumables manufactured to clinical standards, distributed with the traceability healthcare providers require.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <a class="contact-email" href="mailto:nick@onyxx.co.za">nick@onyxx.co.za</a>
+    <div class="contact-meta">Onyxx Manufacturing &amp; Distribution<br>© 2026</div>
+  </div>
+</section>
+
+</body>
+</html>
